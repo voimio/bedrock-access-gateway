@@ -1,0 +1,13 @@
+services:
+  bedrock-gateway:
+    build:
+      context: ./src
+      dockerfile: Dockerfile_ecs
+    ports:
+      - "8081:80"
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_REGION}
+      - AWS_REGION=${AWS_REGION}
+      - DEBUG=true
